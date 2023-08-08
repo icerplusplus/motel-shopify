@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
+import { MotelsModule } from './motels/motels.module';
 
-const apis = [];
+const apis = [MotelsModule];
 
 @Module({
   imports: [...apis],
-  controllers: [],
-  providers: [],
+  exports: [...apis],
 })
 export class ApiModule {}
