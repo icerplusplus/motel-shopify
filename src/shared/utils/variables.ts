@@ -9,6 +9,10 @@ export const DATABASE = {
   DB_NAME: process.env.DB_NAME,
 };
 
+export const SERVER = {
+  PORT: +process.env.SERVER_PORT,
+}
+
 export enum Roles {
   ADMIN = 'ADMIN',
   USER = 'USER',
