@@ -7,16 +7,19 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class MotelsCoreService {
-    constructor(@InjectRepository(MotelEntity) private readonly motelRepo: Repository<MotelEntity>) {}
+  constructor(
+    @InjectRepository(MotelEntity)
+    private readonly motelRepo: Repository<MotelEntity>,
+  ) {}
 
-    // create
+  // create
   async create(createMotelDto: CreateMotelDto) {
     // TODO: upload thumbnails
     // if (createMotelDto.thumnails && createMotelDto.thumnails.length > 0) {
 
     // }
-    const newMotel = this.motelRepo.create(createMotelDto)
-    return await this.motelRepo.save(newMotel)
+    const newMotel = this.motelRepo.create(createMotelDto);
+    return await this.motelRepo.save(newMotel);
   }
 
   // update
@@ -25,40 +28,40 @@ export class MotelsCoreService {
 
     // TODO: update motel detail
 
-    return await this.motelRepo.save(updateMotelDto)
+    return await this.motelRepo.save(updateMotelDto);
   }
 
   // delete
   async softDelete(id: string) {
-    return await this.motelRepo.softDelete(id)
+    return await this.motelRepo.softDelete(id);
   }
 
   // find by id
   async findById(id: string) {
     return await this.motelRepo.findOne({
-        where: {
-            ID: id
-        },
-        relations: ['details', 'comments', 'owner']
-    })
+      where: {
+        ID: id,
+      },
+      relations: ['details', 'comments', 'owner'],
+    });
   }
 
   // find and pagination
   async findAndPagination(pagination: Pagination) {
-    const [list, count] = await this.motelRepo.findAndCount({      
-        order: {
-            CreatedAt: 'DESC',
-          },
-        skip: (pagination.page - 1) * pagination.size,
-        take: pagination.size,
-    })
+    const [list, count] = await this.motelRepo.findAndCount({
+      order: {
+        CreatedAt: 'DESC',
+      },
+      skip: (pagination.page - 1) * pagination.size,
+      take: pagination.size,
+    });
 
     return {
-        motels: list,
-        pagination: {
-            ...pagination,
-            count
-        }
-    }
+      motels: list,
+      pagination: {
+        ...pagination,
+        count,
+      },
+    };
   }
 }
