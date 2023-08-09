@@ -6,7 +6,7 @@ import { MotelEntity } from './motel.entity';
 @Entity({ name: 'motel_details', database: DATABASE.DB_NAME })
 export class MotelDetailEntity extends BaseEntity {
   @Column()
-  title: number;
+  title: string;
 
   @Column()
   value: string;
