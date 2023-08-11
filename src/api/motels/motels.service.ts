@@ -5,15 +5,15 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class MotelsService {
-    constructor(private readonly motelCoreRepo: MotelsCoreService) {}
+  constructor(private readonly motelCoreRepo: MotelsCoreService) {}
 
-    // create
+  // create
   async create(createMotelDto: CreateMotelDto) {
     // TODO: upload thumbnails
     // if (createMotelDto.thumnails && createMotelDto.thumnails.length > 0) {
 
     // }
-    return await this.motelCoreRepo.create(createMotelDto)
+    return await this.motelCoreRepo.create(createMotelDto);
   }
 
   // update
@@ -22,21 +22,21 @@ export class MotelsService {
 
     // TODO: update motel detail
 
-    return await this.motelCoreRepo.update(updateMotelDto)
+    return await this.motelCoreRepo.update(updateMotelDto);
   }
 
   // delete
   async softDelete(id: string) {
-    return await this.motelCoreRepo.softDelete(id)
+    return await this.motelCoreRepo.softDelete(id);
   }
 
   // find by id
   async findById(id: string) {
-    return await this.motelCoreRepo.findById(id)
+    return await this.motelCoreRepo.findById(id);
   }
 
   // find and pagination
   async findAndPagination(pagination: Pagination) {
-    return await this.motelCoreRepo.findAndPagination(pagination)
+    return await this.motelCoreRepo.findAndPagination(pagination);
   }
 }

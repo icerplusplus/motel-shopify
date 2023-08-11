@@ -32,7 +32,7 @@ export class MotelEntity extends BaseEntity {
     nullable: true,
     // default: [],
   })
-  thumnails: string[];
+  thumbnails: string[];
 
   @Column()
   area: number;
