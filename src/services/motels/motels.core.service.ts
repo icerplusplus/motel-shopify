@@ -16,7 +16,6 @@ export class MotelsCoreService {
   async create(createMotelDto: CreateMotelDto) {
     // TODO: upload thumbnails
     // if (createMotelDto.thumnails && createMotelDto.thumnails.length > 0) {
-
     // }
     const newMotel = this.motelRepo.create(createMotelDto);
     return await this.motelRepo.save(newMotel);
@@ -25,6 +24,7 @@ export class MotelsCoreService {
   // update
   async update(updateMotelDto: UpdateMotelDto) {
     // TODO: upload thumbnails
+    // if(updateMotelDto.thumbnails)
 
     // TODO: update motel detail
 

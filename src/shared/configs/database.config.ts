@@ -3,7 +3,7 @@ import { join } from 'path';
 import { DATABASE } from '../utils/variables';
 
 export const dbOptions: TypeOrmModuleOptions = {
-  type: 'mariadb',
+  type: 'mysql',
   host: DATABASE.DB_HOST,
   port: DATABASE.DB_PORT,
   username: DATABASE.DB_USERNAME,

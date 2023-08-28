@@ -50,6 +50,7 @@ export class MotelsController {
   ) {
     // Get image files
     const imageList = await this.filesService.uploadMutipleFiles(files);
+
     // Map to get image path
     const thumbnails = imageList.map?.((image) => image.path);
 
